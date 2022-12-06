@@ -29,6 +29,9 @@
 #define TUN_YELLOW			23
 #define TUN_GREEN			24
 
+#define PED_RED				32
+#define PED_GREEN			34
+
 extern int status;
 
 #endif /* INC_GLOBAL_H_ */

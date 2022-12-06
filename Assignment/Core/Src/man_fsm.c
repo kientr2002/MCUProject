@@ -22,6 +22,12 @@ void man_fsm_run() {
 		}
 		if (Button2_Is_Pressed() == 1){
 			status = TUN_RED;
+			IncRed5s(5000);
+		}
+		if (Button3_Is_Pressed() == 1)
+		{
+			status = PED_GREEN;
+			SetTimer1(5000);
 		}
 		break;
 
@@ -36,6 +42,10 @@ void man_fsm_run() {
 			status = MAN_RED;
 			SetTimer1(5000);
 		}
+		if (Button2_Is_Pressed() == 1) {
+			status = TUN_YELLOW;
+			IncYellow2s(2000);
+		}
 		break;
 
 	case MAN_GREEN:
@@ -48,6 +58,14 @@ void man_fsm_run() {
 		if (Button1_Is_Pressed() == 1) {
 			status = MAN_YELLOW;
 			SetTimer1(2000);
+		}
+		if (Button2_Is_Pressed() == 1) {
+			status = TUN_GREEN;
+			IncGreen3s(3000);
+		}
+		if (Button3_Is_Pressed() == 1) {
+			status = PED_RED;
+			//SetTimer1(3000);
 		}
 		break;
 

@@ -1,2 +1,1 @@
-tun_fsm.c:9:6:tun_fsm	8	static
-tun_fsm.c:30:6:increaseTime	16	static
+tun_fsm.c:9:6:tun_fsm_run	8	static

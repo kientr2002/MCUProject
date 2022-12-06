@@ -8,8 +8,8 @@
 #ifndef INC_BUZZER_H_
 #define INC_BUZZER_H_
 
+#include "global.h"
+
 void buzzer_run();
-
-
 
 #endif /* INC_BUZZER_H_ */
