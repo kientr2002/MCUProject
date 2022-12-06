@@ -1,0 +1,19 @@
+10:02:40 **** Incremental Build of configuration Debug for project Assignment ****
+make -j12 all 
+arm-none-eabi-gcc -o "Assignment.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Workspace\VXL\Assignment-2\Assignment\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Assignment.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Assignment.elf
+ 
+arm-none-eabi-size   Assignment.elf 
+arm-none-eabi-objdump -h -S  Assignment.elf  > "Assignment.list"
+arm-none-eabi-objcopy  -O ihex  Assignment.elf  "Assignment.hex"
+arm-none-eabi-objcopy  -O binary  Assignment.elf  "Assignment.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8800	     80	   1664	  10544	   2930	Assignment.elf
+Finished building: default.size.stdout
+ 
+Finished building: Assignment.hex
+Finished building: Assignment.bin
+ 
+ 
+Finished building: Assignment.list
+ 

@@ -1,0 +1,19 @@
+/*
+ * tun_fsm.c
+ *
+ *  Created on: Dec 6, 2022
+ *      Author: ADMIN
+ */
+#include "tun_fsm.h"
+
+void tun_fsm(){
+
+}
+
+void increaseTime(int count){
+	if(count < 3){
+		count++;
+	} else {
+		count = 0;
+	}
+}

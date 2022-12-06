@@ -1,0 +1,29 @@
+/*
+ * tun_fsm.c
+ *
+ *  Created on: Dec 6, 2022
+ *      Author: ADMIN
+ */
+#include "tun_fsm.h"
+
+void tun_fsm(){
+	switch(status) {
+	case TUN_RED:
+
+		break;
+	case TUN_YELLOW:
+		break;
+	case TUN_GREEN:
+		break;
+	default:
+		break;
+	}
+}
+
+void increaseTime(int count){
+	if(count < 9){
+		count++;
+	} else {
+		count = 0;
+	}
+}

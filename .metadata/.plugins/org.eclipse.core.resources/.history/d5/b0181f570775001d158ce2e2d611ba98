@@ -1,0 +1,19 @@
+/*
+ * buzzer.c
+ *
+ *  Created on: Dec 6, 2022
+ *      Author: ADMIN
+ */
+#include "buzzer.h"
+value = 0;
+void buzzer_run(){
+	while (value<255)
+		  {
+			  htim3.Instance->CCR1 = value;  // vary the duty cycle
+			  value += 20;  // increase the duty cycle by 20
+			  HAL_Delay (500);  // wait for 500 ms
+		  }
+
+		  value = 0;   // reset the value
+}
+
