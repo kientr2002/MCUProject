@@ -10,7 +10,6 @@
 
 #include "global.h"
 
-void tun_fsm();
-void increaseTime(int count);
+void tun_fsm_run();
 
 #endif /* INC_TUN_FSM_H_ */
