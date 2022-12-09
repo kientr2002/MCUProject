@@ -34,7 +34,6 @@ void auto_fsm_run() {
 			status = AUTO_RED;
 			SetTimer1(5000);
 		}
-
 		if (Button1_Is_Pressed() == 1) {
 			status = MAN_RED;
 			SetTimer1(5000);
