@@ -62,16 +62,16 @@ static void MX_TIM3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void Test_IO() {
-	HAL_GPIO_WritePin(D2_GPIO_Port, D2_Pin,
-			HAL_GPIO_ReadPin(A1_GPIO_Port, A1_Pin));
-	HAL_GPIO_WritePin(D3_GPIO_Port, D3_Pin,
-			HAL_GPIO_ReadPin(A2_GPIO_Port, A2_Pin));
-	HAL_GPIO_WritePin(D4_GPIO_Port, D4_Pin,
-			HAL_GPIO_ReadPin(A3_GPIO_Port, A3_Pin));
-	HAL_GPIO_WritePin(D6_GPIO_Port, D6_Pin,
-			HAL_GPIO_ReadPin(A0_GPIO_Port, A0_Pin));
-}
+//void Test_IO() {
+//	HAL_GPIO_WritePin(D2_GPIO_Port, D2_Pin,
+//			HAL_GPIO_ReadPin(A1_GPIO_Port, A1_Pin));
+//	HAL_GPIO_WritePin(D3_GPIO_Port, D3_Pin,
+//			HAL_GPIO_ReadPin(A2_GPIO_Port, A2_Pin));
+//	HAL_GPIO_WritePin(D4_GPIO_Port, D4_Pin,
+//			HAL_GPIO_ReadPin(A3_GPIO_Port, A3_Pin));
+//	HAL_GPIO_WritePin(D6_GPIO_Port, D6_Pin,
+//			HAL_GPIO_ReadPin(A0_GPIO_Port, A0_Pin));
+//}
 /* USER CODE END 0 */
 
 /**
@@ -105,9 +105,9 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  //HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   HAL_TIM_Base_Start_IT(&htim2);
-  HAL_TIMEx_PWMN_Start(&htim3, TIM_CHANNEL_1);
+  //HAL_TIMEx_PWMN_Start(&htim3, TIM_CHANNEL_1);
 //  htim3.Instance->CCR1 = 0;
   /* USER CODE END 2 */
 
@@ -120,12 +120,12 @@ int main(void)
 	  man_fsm_run();
 	  tun_fsm_run();
 	  ped_fsm_run();
-
-//	  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 10);
-//	  HAL_Delay(1000);
-//	  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 100);
-//	 	  HAL_Delay(1000);
 	  //HAL_Delay(10);
+
+	  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 100);
+	  HAL_Delay(1000);
+	  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 1000);
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -189,9 +189,9 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 63;
+  htim2.Init.Prescaler = 7999;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 9999;
+  htim2.Init.Period = 9;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -234,9 +234,9 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 0;
+  htim3.Init.Prescaler = 63;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 65535;
+  htim3.Init.Period = 9999;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)

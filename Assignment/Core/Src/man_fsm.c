@@ -65,7 +65,7 @@ void man_fsm_run() {
 		}
 		if (Button3_Is_Pressed() == 1) {
 			status = PED_RED;
-			//SetTimer1(3000);
+			SetTimer1(3000);
 		}
 		break;
 
